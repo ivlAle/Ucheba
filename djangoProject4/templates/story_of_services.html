@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>История заказов</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        table {
+            width: 500px; /* Ширина таблицы */
+            border: 1px solid black; /* Рамка вокруг таблицы */
+        }
+        td, th {
+            padding: 3px; /* Поля вокруг содержимого ячеек */
+            border: 1px solid;
+        }
+        th {
+            text-align: left; /* Выравнивание по левому краю */
+            background: black; /* Цвет фона */
+            color: white; /* Цвет текста */
+        }
+        td{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+        <div class='navbar'>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'service' %}">Оставить заявку</a></li>
+                    <li style="float:right"><a href="{% url 'logout' %}">Выход</a></li>
+                 {% endif %}
+                <li style="float:right"><a href="{% url 'login' %}">Вход</a></li>
+                <li style="float:right"><a href="{% url 'register' %}">Регистрация</a></li>
+                {% if request.user.is_authenticated and request.user.is_staff %}
+                    <li style="float:right"><a href="{% url 'story_of_services' %}">История заказов</a></li>
+                    <li style="float:right"><a href="{% url 'product_list' %}">Список заказов</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="main_content">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Выбрать</button>
+            </form>
+            Всего заказов:{{ ysl1 }}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Клиент</th>
+                        <th>Дата</th>
+                        <th>Услуга</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in objs %}
+                        <tr>
+                            <td>{{ obj.user }}</td>
+                            <td>{{ obj.date_at }}</td>
+                            <td>{{ obj.product }}</td>
+                            <td>{{ obj.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+
+</body>
+</html>

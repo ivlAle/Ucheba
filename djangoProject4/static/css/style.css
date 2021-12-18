@@ -1,0 +1,115 @@
+body{
+    max-width: 990px;
+    margin: auto;
+    background: url('../../media/img/pattern2.png');
+    font-family: Madefor,Helvetica Neue,Helvetica,Arial,メイリオ,meiryo,ヒラギノ角ゴ pro w3,hiragino kaku gothic pro,sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.content{
+    border: #333 solid;
+}
+
+.main_content{
+    padding: 20px;
+    color: #0a0d2e;
+}
+
+.navbar{
+    justify-content: center
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+
+  .active {
+    background-color: #04AA6D;
+  }
+
+.service_form{
+       margin: auto;
+      justify-content: center
+}
+
+table {
+    width: 300px; /* Ширина таблицы */
+    border: 1px solid black; /* Рамка вокруг таблицы */
+}
+td, th {
+    padding: 3px; /* Поля вокруг содержимого ячеек */
+}
+   th {
+    text-align: left; /* Выравнивание по левому краю */
+    background: black; /* Цвет фона */
+    color: white; /* Цвет текста */
+   }
+
+/* Team
+===================*/
+.team {
+    margin: 100px 0 70px;
+}
+
+.team__inner {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.team__item {
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.team__photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team__name {
+    margin-bottom: 8px;
+
+    font-size: 22px;
+    color: #2d3033;
+}
+
+.team__prof {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+    color: #e84545;
+    text-transform: uppercase;
+}
+
+.team__text {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6c7279;
+}

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="content">
+        <div class='navbar'>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'service' %}">Оставить заявку</a></li>
+                    <li style="float:right"><a href="{% url 'logout' %}">Выход</a></li>
+                 {% endif %}
+                <li style="float:right"><a href="{% url 'login' %}">Вход</a></li>
+                <li style="float:right"><a href="{% url 'register' %}">Регистрация</a></li>
+                {% if request.user.is_authenticated and request.user.is_staff %}
+                    <li style="float:right"><a href="{% url 'story_of_services' %}">История заказов</a></li>
+                    <li style="float:right"><a href="{% url 'product_list' %}">Список заказов</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <img class="main_img" src="media/img/5b714b918d61b.jpg" width="100%"  alt="">
+        <div class="main_content">
+            <div class="wellcome">
+                <h1>ДОБРО ПОЖАЛОВАТЬ!</h1>
+                <h2>Мы предлагаем услуги изготовления контекстной рекламы</h2>
+                <p>Продвижение данных о вашей организации в Интернете
+                     Тел. 8-800-555-33-11
+                </p>
+            </div>
+
+            <div class="team" id="team">
+                <h2>Наши работники</h2>
+    <div class="container">
+        <div class="team__inner">
+
+            <div class="team__item">
+                <img class="team__photo" src="media/img/team-1.jpg" alt="">
+                <div class="team__name">Андреева Анна</div>
+                <div class="team__prof">Продавец-консультант</div>
+            </div>
+
+            <div class="team__item">
+                <img class="team__photo" src="media/img/team-2.jpg" alt="">
+                <div class="team__name">Иванов Иван</div>
+                <div class="team__prof">Менеджер по продажам</div>
+            </div>
+
+            <div class="team__item">
+                <img class="team__photo" src="media/img/team-3.jpg" alt="">
+                <div class="team__name">Сидорова Александра</div>
+                <div class="team__prof">Менеджер по продажам</div>
+            </div>
+
+        </div><!-- /.team__inner -->
+    </div><!-- /.container -->
+</div><!-- /.team -->
+
+        </div>
+    </div>
+</form>
+</body>
+</html>
